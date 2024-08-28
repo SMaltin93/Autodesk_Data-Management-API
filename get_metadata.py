@@ -48,10 +48,10 @@ async def main():
     entity_id = get_entity_id(url, project_id, access_token)
     guid = get_guid(access_token, entity_id)
 
-    # print(f"Folder URN: {folder_urn}")  
-    # print(f"Project ID: {project_id}")
-    # print(f"Entity ID: {entity_id}")
-    # print(f"GUID: {guid}")
+    print(f"Folder URN: {folder_urn}")  
+    print(f"Project ID: {project_id}")
+    print(f"Entity ID: {entity_id}")
+    print(f"GUID: {guid}")
 
     async with aiohttp.ClientSession() as session:
         json_data = await get_json(session, access_token, entity_id, guid)
