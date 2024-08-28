@@ -1,5 +1,5 @@
 from post_token import post_token
-from get_parameters import input_url, get_Folder_urn, get_project_id, get_entity_id, get_guid
+from get_parameters import input_url, get_Folder_urn, get_project_id, get_entity_id, get_guid, get_display_name
 import json
 import requests
 import base64
@@ -53,8 +53,11 @@ def main():
         formatted_json = json.dumps(json_data, indent=4)
        
         # create a json file as output in the same directory with the name of the 
-        with open("metadata.json", "w") as file:
+        # set the name of the file as the name of the file in the metadata
+        file_name = get_display_name()
+        with open(f"{file_name}.json", "w") as file:
             file.write(formatted_json)
+        
     else:
         print("Failed to get metadata properties.")
 

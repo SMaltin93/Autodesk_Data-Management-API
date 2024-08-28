@@ -6,11 +6,16 @@ from tkinter import simpledialog, messagebox
 from urllib.parse import urlparse, parse_qs, unquote, quote
 
 
+display_name = None 
+
 def input_url():
     root = tk.Tk()
     root.withdraw()
     url = simpledialog.askstring(title="URL", prompt="Enter the URL of the project:")
     return url
+
+def get_display_name():
+    return display_name
 
 
 def get_Folder_urn(url):
@@ -39,6 +44,7 @@ def get_project_id(url):
     
     
 def get_entity_id(url, project_id, access_token):
+    global display_name
     parsed = urlparse(url)
     query_params = parse_qs(parsed.query)
     print("query_params: ", query_params)
@@ -56,6 +62,10 @@ def get_entity_id(url, project_id, access_token):
         response = requests.get(api_url, headers=headers)
         # gain the id of the entity from derivatives id 
         if response.status_code == 200:
+            # set 'displayName'
+            display_name = response.json()['data'][0]['attributes']['displayName']
+            print("display_name: ", display_name)
+            get_display_name() 
             entity_id = response.json()['data'][0]['id']
             return entity_id
         else:
