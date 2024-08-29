@@ -54,7 +54,7 @@ Before using this script, ensure you have the following:
 
    Use `pip` to install the necessary Python packages:
 
-```bash
+   ```bash
    python.exe -m pip install --upgrade pip
    ```
    
@@ -62,11 +62,11 @@ Before using this script, ensure you have the following:
    pip install python-dotenv
    ```
 
-    ```bash
+   ```bash
    pip install requests
    ```
 
-    ```bash
+   ```bash
    pip install aiohttp
    ```
 
