@@ -38,6 +38,8 @@ Before using this script, ensure you have the following:
    ```bash
    touch .env
    ```
+   OBS, you can skip this step if you have .env-file. 
+
 
    Edit the `.env` file and add the following lines:
 
@@ -52,14 +54,20 @@ Before using this script, ensure you have the following:
 
    Use `pip` to install the necessary Python packages:
 
+```bash
+   python.exe -m pip install --upgrade pip
+   ```
+   
    ```bash
-   pip install -r requirements.txt
+   pip install python-dotenv
    ```
 
-   If a `requirements.txt` file is not available, manually install the required packages:
+    ```bash
+   pip install requests
+   ```
 
-   ```bash
-   pip install requests python-dotenv
+    ```bash
+   pip install aiohttp
    ```
 
 ## Usage
@@ -80,7 +88,7 @@ Before using this script, ensure you have the following:
 
 3. **Output**:
 
-   The script will fetch the metadata and save it as a JSON file in the same directory. The JSON file will be named according to the display name of the model retrieved from the Autodesk Forge API.
+   The script will fetch the metadata and save it as a JSON file in the json_files directory. The JSON file will be named according to the display name of the model retrieved from the Autodesk Forge API.
 
    For example, if the model's display name is `ExampleModel`, the output file will be `ExampleModel.json`.
 

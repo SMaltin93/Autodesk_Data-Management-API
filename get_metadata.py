@@ -58,7 +58,8 @@ async def main():
         if json_data:
             formatted_json = json.dumps(json_data, indent=4)
             file_name = get_display_name()
-            with open(f"{file_name}.json", "w") as file:
+            # save it in json_file directory
+            with open(f"json_files/{file_name}.json", "w") as file:
                 file.write(formatted_json)
         else:
             print("Failed to get metadata properties.")
